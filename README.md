@@ -6,7 +6,7 @@ This plugin for ErrBot allow to control the Mix Light API
 
 ## Configuration
 
-`!light config {'API_URL' : 'http://1.2.3.4:8888'}`
+`!plugin config LightControl {'API_URL': 'http://1.2.3.4:8080'}`
 
 ## Usage
 
