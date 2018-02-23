@@ -7,7 +7,7 @@ from errbot import BotPlugin
 
 class LightControl(BotPlugin):
 
-    api_url = URL = 'http://10.3.18.205:8888/{0}'
+    api_url = 'http://10.3.17.59:8888/{0}'
 
     @botcmd
     def light(self, msg, args):
