@@ -28,6 +28,6 @@ class LightControl(BotPlugin):
 
         # Request server
         if state:
-            url = self.api_url.replace(state)
+            url = self.api_url.format(state)
             with urlopen(Request(url, {})) as response:
                 return response
