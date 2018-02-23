@@ -10,7 +10,7 @@ class LightControl(BotPlugin):
     api_url = URL = 'http://10.3.18.205:8888/{0}'
 
     @botcmd
-    def light(self, msg):
+    def light(self, msg, args):
         """ Enable/Disable Mix Light """
 
         # Get state
