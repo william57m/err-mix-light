@@ -7,7 +7,8 @@ from errbot import BotPlugin
 
 class LightControl(BotPlugin):
 
-    api_url = 'http://10.3.17.59:8888/{0}'
+    def get_configuration_template(self):
+        return {'API_URL': 'http://localhost:8888'}
 
     @botcmd
     def light(self, msg, args):
@@ -28,6 +29,6 @@ class LightControl(BotPlugin):
 
         # Request server
         if state:
-            url = self.api_url.format(state)
+            url = self.config['API_URL'] + '/' + state
             with urlopen(Request(url, {})) as response:
                 return response
