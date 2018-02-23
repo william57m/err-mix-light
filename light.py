@@ -13,6 +13,10 @@ class LightControl(BotPlugin):
     def light(self, msg, args):
         """ Enable/Disable Mix Light """
 
+        # Documentation
+        if not args:
+            return "Please give a state: !light on or !ligh off to turn on or turn off the light."
+
         # Get state
         state = None
         if args == 'on':
