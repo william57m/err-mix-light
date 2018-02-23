@@ -15,9 +15,9 @@ class LightControl(BotPlugin):
 
         # Get state
         state = None
-        if msg == 'on':
+        if args == 'on':
             state = 'activate'
-        elif msg == 'off':
+        elif args == 'off':
             state = 'deactivate'
         else:
             return "This is not a valid state man, please use 'on' or 'off'"
