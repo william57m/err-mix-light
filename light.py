@@ -5,7 +5,7 @@ from errbot import botcmd
 from errbot import BotPlugin
 
 
-class Light(BotPlugin):
+class LightControl(BotPlugin):
 
     api_url = URL = 'http://10.3.18.205:8888/{0}'
 

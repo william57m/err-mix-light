@@ -1,0 +1,9 @@
+[Core]
+Name = LightControl
+Module = light
+
+[Documentation]
+Description = Allow to control the Mix Light
+
+[Python]
+Version = 3
