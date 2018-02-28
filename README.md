@@ -12,3 +12,4 @@ This plugin for ErrBot allow to control the Mix Light API
 
 Turn on the light: `!light on`
 Turn off the light: `!light off`
+Get status the light: `!light status`
