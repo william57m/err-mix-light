@@ -16,19 +16,25 @@ class LightControl(BotPlugin):
 
         # Documentation
         if not args:
-            return "Please give a state: !light on or !ligh off to turn on or turn off the light."
+            return self.return_doc()
 
         # Get state
-        state = None
-        if args == 'on':
-            state = 'activate'
-        elif args == 'off':
-            state = 'deactivate'
+        if args == 'on' or args == 'off':
+            return self.change_state(args)
+        elif args == 'status':
+            return self.return_status()
         else:
-            return "This is not a valid state man, please use 'on' or 'off'"
+            return self.return_doc()
 
-        # Request server
-        if state:
-            url = self.config['API_URL'] + '/' + state
-            with urlopen(Request(url, {})) as response:
-                return response
+    def change_state(self, state):
+        url = self.config['API_URL'] + '/' + state
+        with urlopen(Request(url, {})) as response:
+            return response
+
+    def return_status(self):
+        url = self.config['API_URL'] + '/status'
+        with urlopen(url) as response:
+            return response
+
+    def return_doc(self):
+        return "This is not a valid command man, please use 'on' or 'off' or 'status'"
