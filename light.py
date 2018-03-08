@@ -1,6 +1,7 @@
 from urllib.request import Request
 from urllib.request import urlopen
- 
+from urllib.parse import urlencode
+
 from errbot import botcmd
 from errbot import BotPlugin
 
@@ -27,14 +28,16 @@ class LightControl(BotPlugin):
             return self.return_doc()
 
     def change_state(self, state):
-        url = self.config['API_URL'] + '/' + state
-        with urlopen(Request(url, {})) as response:
-            return response
+        param = 'activate' if args == 'on' else 'deactivate'
+        host = self.config['API_URL']
+        url = f'{host}/{param}'
+        with urlopen(Request(url, urlencode({}).encode())) as response:
+            return response.read().decode()
 
     def return_status(self):
         url = self.config['API_URL'] + '/status'
         with urlopen(url) as response:
-            return response
+            return response.read().decode()
 
     def return_doc(self):
         return "This is not a valid command man, please use 'on' or 'off' or 'status'"
