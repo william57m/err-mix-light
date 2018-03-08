@@ -28,7 +28,7 @@ class LightControl(BotPlugin):
             return self.return_doc()
 
     def change_state(self, state):
-        param = 'activate' if args == 'on' else 'deactivate'
+        param = 'activate' if state == 'on' else 'deactivate'
         host = self.config['API_URL']
         url = f'{host}/{param}'
         with urlopen(Request(url, urlencode({}).encode())) as response:
